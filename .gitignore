@@ -1,3 +1,6 @@
 .venv
+# backend/.env
+backend/.venv
+frontend/.venv
 frontend/node_modules
 frontend/dist/
