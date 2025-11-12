@@ -73,7 +73,7 @@ cd backend
 
 ### 2️⃣ Установка зависимостей
 ```bash
-pip install --upgrade pip
+python.exe -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
@@ -105,10 +105,8 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 
 ## 🚀 Запуск сервера
 ```bash
-python manage.py makemigrations users
-python manage.py makemigrations storage
-python manage.py migrate
 python manage.py createsuperuser
+python manage.py migrate
 python manage.py runserver 127.0.0.1:8000
 ```
 

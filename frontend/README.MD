@@ -74,26 +74,18 @@
 
 ## ⚙️ Установка и настройка
 
-### 1️⃣ Вход в папку проекта и инициализация
+### 1️⃣ Вход в папку проекта
 ```bash
 cd frontend
-npm init -y
 ```
 
 ### 2️⃣ Установка библиотек и зависимостей
 ```bash
-npm install react@18.2.0 react-dom@18.2.0 @reduxjs/toolkit@2.9.2 react-redux@8.1.1 react-router-dom@6.14.1 redux@4.2.1 axios@1.5.0
-
-npm install --save-dev webpack@5.88.0 webpack-cli@5.1.4 webpack-dev-server@4.15.1 @babel/core@7.23.0 @babel/preset-env@7.23.0 @babel/preset-react@7.23.0 babel-loader@9.1.3 css-loader@6.9.2 style-loader@3.3.3
+npm install react react-dom @reduxjs/toolkit react-redux react-router-dom redux axios
+npm install --save-dev webpack webpack-cli webpack-dev-server @babel/core @babel/preset-env @babel/preset-react babel-loader css-loader style-loader
 ```
 
 ## 🚀 Запуск сервера
-Заменить строчку в package.json на
-```bash
-"start": "webpack serve --mode development --open --hot --host=127.0.0.1",
-```
-
-Ввести в терминале команды
 ```bash
 npm run build
 npm run start
