@@ -68,6 +68,8 @@
 ├─ README.md					# Документация frontend-проекта
 └─ webpack.config.js			# Конфигурация Webpack
 
+```
+
 ---
 
 ## ⚙️ Установка и настройка
@@ -78,7 +80,7 @@ cd frontend
 npm init -y
 ```
 
-### 2️⃣ Установка и настройка
+### 2️⃣ Установка библиотек и зависимостей
 ```bash
 npm install react@18.2.0 react-dom@18.2.0 @reduxjs/toolkit@2.9.2 react-redux@8.1.1 react-router-dom@6.14.1 redux@4.2.1 axios@1.5.0
 
