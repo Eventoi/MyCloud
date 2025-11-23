@@ -1,6 +1,7 @@
 .venv
 backend/media
-# backend/.env
+backend/static
+backend/.env
 __pycache__/
 frontend/node_modules
 frontend/package-lock.json
