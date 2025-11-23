@@ -79,6 +79,9 @@ class FileDownloadView(APIView):
         f = file.stored_file
         if not f:
             raise Http404("File not found")
+        # Обновляем дату последнего скачивания
+        file.last_downloaded_at = timezone.now()
+        file.save(update_fields=['last_downloaded_at'])
         # Отдаём файл с оригинальным именем и расширением
         return FileResponse(
             f.open('rb'),
@@ -107,6 +110,8 @@ def public_download_view(request, token):
     f = file.stored_file
     if not f:
         raise Http404("File data missing")
+    file.last_downloaded_at = timezone.now()
+    file.save(update_fields=['last_downloaded_at'])
     return FileResponse(
         f.open('rb'),
         as_attachment=True,

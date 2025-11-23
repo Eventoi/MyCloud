@@ -1,7 +1,13 @@
 import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import API from '../../api';
 
-// userId — для просмотра чужого хранилища (если админ)
+// Функция преобразования строки даты из UTC в local time
+function formatLocalDate(utcString) {
+  if (!utcString) return '—';
+  const date = new Date(utcString); // Парсит как UTC
+  return date.toLocaleString('ru-RU'); // Показывает время по локали и таймзоне браузера
+}
+
 const FileList = forwardRef(function FileList({ userId = null, isAdminView = false }, ref) {
   const [files, setFiles] = useState([]);
   const [editingId, setEditingId] = useState(null);
@@ -47,8 +53,25 @@ const FileList = forwardRef(function FileList({ userId = null, isAdminView = fal
 
   const handleCopyLink = (specialLink) => {
     const url = `http://127.0.0.1:8000/download/s/${specialLink}/`;
-    navigator.clipboard.writeText(url);
-    alert('Ссылка скопирована!');
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url)
+        .then(() => alert('Ссылка скопирована!'))
+        .catch(err => {
+          alert('Ошибка копирования: ' + err);
+        });
+    } else {
+      const input = document.createElement('input');
+      input.value = url;
+      document.body.appendChild(input);
+      input.select();
+      try {
+        document.execCommand('copy');
+        alert('Ссылка скопирована!');
+      } catch (err) {
+        alert('Не удалось скопировать ссылку');
+      }
+      document.body.removeChild(input);
+    }
   };
 
   const handleDownload = id => {
@@ -96,7 +119,7 @@ const FileList = forwardRef(function FileList({ userId = null, isAdminView = fal
                   {f.comment && <span className="file-comment">&nbsp;— {f.comment}</span>}
                 </div>
                 <div className="file-meta">
-                  Загрузка: {f.uploaded_at?.slice(0,10)} | Последнее скачивание: {f.last_downloaded_at?.slice(0,10) || '—'}
+                  Загрузка: {formatLocalDate(f.uploaded_at)} | Последнее скачивание: {formatLocalDate(f.last_downloaded_at)}
                 </div>
                 <div className="file-actions">
                   <button onClick={() => handleDownload(f.id)}>Скачать</button>
