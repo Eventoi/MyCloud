@@ -126,5 +126,5 @@ LOGGING = {
     'root': {'handlers': ['console'], 'level': 'INFO'},
 }
 
-# Убрать предупреждений Django
+# Убрать предупреждения Django
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
