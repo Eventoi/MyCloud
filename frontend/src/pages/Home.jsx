@@ -14,7 +14,7 @@ export default function Home() {
       </p>
       {!user ? (
         <div>
-          <Link className="big-btn" to="/login">Войти</Link>
+          <Link className="big-btn" to="/login">Вход</Link>
           <span style={{ margin: '0 12px', color: '#888' }}>|</span>
           <Link className="big-btn" to="/register">Регистрация</Link>
         </div>
@@ -25,7 +25,7 @@ export default function Home() {
           {user.is_administrator && (
             <>
               <span style={{ margin: '0 12px', color: '#888' }}>|</span>
-              <Link className="big-btn" to="/admin">Админ-панель</Link>
+              <Link className="big-btn" to="/adminpanel">Админ-панель</Link>
             </>
           )}
         </div>

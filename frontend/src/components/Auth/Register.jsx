@@ -91,7 +91,7 @@ export default function Register() {
         <button type="submit">Создать аккаунт</button>
       </form>
       <div style={{ marginTop: 14 }}>
-        Уже есть аккаунт? <Link to="/login">Войти</Link>
+        Уже есть аккаунт? <Link to="/login">Вход</Link>
       </div>
     </div>
   );

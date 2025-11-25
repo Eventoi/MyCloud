@@ -35,7 +35,7 @@ export default function Header() {
               <span className="header-user">Вы: <b>{user.username}</b></span>
               <Link to="/storage" className="nav-btn">Моё хранилище</Link>
               {user.is_administrator && (
-                <Link to="/admin" className="nav-btn">Админ-панель</Link>
+                <Link to="/adminpanel" className="nav-btn">Админ-панель</Link>
               )}
               <button className="nav-btn" onClick={handleLogout}>Выйти</button>
             </>

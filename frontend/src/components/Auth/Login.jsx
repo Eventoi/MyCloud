@@ -20,7 +20,7 @@ export default function Login() {
       await API.get('users/csrf/');
       dispatch(setUser(res.data));
       if (res.data.is_administrator) {
-        navigate('/admin');
+        navigate('/adminpanel');
       } else {
         navigate('/storage');
       }
@@ -31,12 +31,12 @@ export default function Login() {
 
   if (user) {
     // Если пользователь уже залогинен, редиректим на нужную страницу
-    return <Navigate to={user.is_administrator ? "/admin" : "/storage"} replace />;
+    return <Navigate to={user.is_administrator ? "/adminpanel" : "/storage"} replace />;
   }
 
   return (
     <div className="form-container">
-      <h3>Вход</h3>
+      <h3>Авторизация</h3>
       {error && <p className="form-error">{error}</p>}
       <form onSubmit={handleLogin}>
         <input placeholder="Логин" value={username} onChange={e => setUsername(e.target.value)} /><br />

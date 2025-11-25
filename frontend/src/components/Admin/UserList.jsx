@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatBytes } from '../Storage/utils/formatBytes';
 
 // Список пользователей с статистикой и действиями
 export default function UserList({ users, onDelete, onEdit, onOpenStorage }) {
@@ -37,12 +38,4 @@ export default function UserList({ users, onDelete, onEdit, onOpenStorage }) {
       </tbody>
     </table>
   );
-}
-
-function formatBytes(bytes) {
-  if (bytes === 0) return '0 Б';
-  const k = 1024;
-  const sizes = ['Б', 'КБ', 'МБ', 'ГБ', 'ТБ'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }

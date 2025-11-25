@@ -27,12 +27,12 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route
-          path="/admin"
+          path="/adminpanel"
           element={user?.is_administrator ? <AdminPanel /> : <Navigate to="/" />}
         />
         <Route
           path="/storage"
-          element={user ? <StoragePage /> : <Navigate to="/login" />}
+          element={user ? <StoragePage /> : <Navigate to="/" />}
         />
       </Routes>
     </div>
